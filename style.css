@@ -39,3 +39,27 @@ a { color: var(--orange); }
 .updated { color: var(--muted); font-size: 14px; }
 footer { margin-top: 48px; padding-bottom: 32px; border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 14px; }
 footer a { color: var(--muted); margin-right: 14px; }
+
+/* Accueil : bandeau sombre, le texte à gauche et la photo d'un livreur Kalé
+   à Parakou à droite (sur téléphone, la photo passe sous le texte). */
+.hero { background: #1f1a17; color: #fff; padding-bottom: 56px; }
+.hero header { max-width: 1100px; }
+.hero .logo { color: #fff; }
+.hero nav a { color: rgba(255, 255, 255, 0.8); }
+.hero nav a:hover { color: #fff; }
+.intro {
+  max-width: 1100px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center;
+}
+.intro h1 { color: #fff; font-size: 42px; margin-top: 48px; }
+.intro .lead { color: rgba(255, 255, 255, 0.88); }
+.intro-photo {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 45% 60%;
+  border-radius: 20px; margin-top: 40px; display: block;
+}
+.credit { font-size: 12px; }
+@media (max-width: 760px) {
+  .intro { grid-template-columns: 1fr; gap: 8px; }
+  .intro h1 { font-size: 32px; margin-top: 32px; }
+  .intro-photo { margin-top: 20px; }
+}
