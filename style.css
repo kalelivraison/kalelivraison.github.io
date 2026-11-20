@@ -1,10 +1,16 @@
+/* Kalé Services : vert forêt, beige sable et orange (novembre 2026). */
+@font-face { font-family: "Fredoka"; src: url("Fredoka-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
 :root {
-  --orange: #e8590c;
-  --orange-soft: #fdebdf;
-  --ink: #1f1a17;
-  --muted: #6b625c;
-  --cream: #fdf6f0;
-  --line: #eadfd6;
+  --orange: #c2410c;
+  --orange-vif: #f2701f;
+  --orange-soft: #fbe3d0;
+  --ink: #1f3d2b;
+  --text: #2c4636;
+  --muted: #56655b;
+  --cream: #f6f1e7;
+  --sand: #e8dcc4;
+  --surface: #fffdf8;
+  --line: #e6ddcb;
 }
 * { box-sizing: border-box; }
 body {
@@ -15,44 +21,56 @@ body {
   line-height: 1.6;
 }
 header, main, footer { max-width: 760px; margin: 0 auto; padding: 0 20px; }
-header { display: flex; align-items: center; justify-content: space-between; padding-top: 22px; }
-.logo { font-size: 30px; font-weight: 800; color: var(--ink); text-decoration: none; letter-spacing: -1px; }
-.logo span { color: var(--orange); }
+header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 22px; }
+
+/* Le logo : la moto (sac orange) et le nom, comme dans l'application. */
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; --cut: var(--cream); }
+.logo .moto { width: 52px; height: auto; display: block; }
+.logo .moto .b { fill: currentColor; }
+.logo .moto .c { stroke: var(--cut); stroke-width: 22; paint-order: stroke; }
+.logo .moto .l { stroke: currentColor; stroke-linecap: round; fill: none; }
+.logo .moto .h { fill: var(--cut); }
+.logo .moto .s { fill: var(--orange-vif); }
+.logo .moto .k { stroke: var(--cut); stroke-linecap: round; fill: none; }
+.logo .nom { font-family: "Fredoka", system-ui, sans-serif; font-weight: 600; font-size: 32px; letter-spacing: -0.5px; line-height: 1; }
+.logo .nom span { color: var(--orange-vif); }
+
 nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-size: 15px; }
 nav a:hover { color: var(--orange); }
-h1 { font-size: 34px; line-height: 1.2; margin: 36px 0 12px; }
-h2 { font-size: 21px; margin: 32px 0 8px; }
-p, li { color: #3a332e; }
+h1 { font-size: 34px; line-height: 1.2; margin: 36px 0 12px; color: var(--ink); }
+h2 { font-size: 21px; margin: 32px 0 8px; color: var(--ink); }
+p, li { color: var(--text); }
 .lead { font-size: 19px; color: var(--muted); }
 .card {
-  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
   padding: 18px 20px; margin: 14px 0;
 }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
 .cards .card { margin: 0; }
-.card h3 { margin: 0 0 6px; font-size: 17px; }
+.card h3 { margin: 0 0 6px; font-size: 17px; color: var(--ink); }
 .badge {
-  display: inline-block; background: var(--orange-soft); color: var(--orange);
+  display: inline-block; background: var(--orange-vif); color: var(--ink);
   font-weight: 700; border-radius: 999px; padding: 6px 14px; margin-top: 8px;
 }
 a { color: var(--orange); }
 .updated { color: var(--muted); font-size: 14px; }
 footer { margin-top: 48px; padding-bottom: 32px; border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 14px; }
 footer a { color: var(--muted); margin-right: 14px; }
+footer p { color: var(--muted); }
 
-/* Accueil : bandeau sombre, le texte à gauche et la photo d'un livreur Kalé
-   à Parakou à droite (sur téléphone, la photo passe sous le texte). */
-.hero { background: #1f1a17; color: #fff; padding-bottom: 56px; }
+/* Accueil : bandeau vert forêt, le texte à gauche et la photo d'un livreur
+   Kalé à Parakou à droite (sur téléphone, la photo passe sous le texte). */
+.hero { background: var(--ink); color: #fff; padding-bottom: 56px; }
 .hero header { max-width: 1100px; }
-.hero .logo { color: #fff; }
-.hero nav a { color: rgba(255, 255, 255, 0.8); }
+.hero .logo { color: var(--sand); --cut: var(--ink); }
+.hero nav a { color: rgba(246, 241, 231, 0.8); }
 .hero nav a:hover { color: #fff; }
 .intro {
   max-width: 1100px; margin: 0 auto; padding: 0 20px;
   display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center;
 }
-.intro h1 { color: #fff; font-size: 42px; margin-top: 48px; }
-.intro .lead { color: rgba(255, 255, 255, 0.88); }
+.intro h1 { color: var(--cream); font-size: 42px; margin-top: 48px; }
+.intro .lead { color: rgba(246, 241, 231, 0.88); }
 .intro-photo {
   width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 45% 60%;
   border-radius: 20px; margin-top: 40px; display: block;
@@ -62,4 +80,6 @@ footer a { color: var(--muted); margin-right: 14px; }
   .intro { grid-template-columns: 1fr; gap: 8px; }
   .intro h1 { font-size: 32px; margin-top: 32px; }
   .intro-photo { margin-top: 20px; }
+  .logo .moto { width: 44px; }
+  .logo .nom { font-size: 28px; }
 }
